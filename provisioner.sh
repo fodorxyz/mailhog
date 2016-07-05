@@ -1,16 +1,16 @@
 # Create mailhog user so we don't run this as root
 useradd -m -s /bin/bash mailhog
 
-# MAILHOG_PASSWORD is a custom input on Fodor
-BCRYPT_PASSWORD=`MailHog bcrypt ${MAILHOG_PASSWORD}`
-
-echo "admin:{$BCRYPT_PASSWORD}" > /home/mailhog/auth
-
 # Download executable from GitHub
 curl -o /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
 
 # Make it executable
 chmod +x /usr/local/bin/mailhog
+
+# MAILHOG_PASSWORD is a custom input on Fodor
+BCRYPT_PASSWORD=`/usr/local/bin/mailhog bcrypt ${MAILHOG_PASSWORD}`
+
+echo "admin:{$BCRYPT_PASSWORD}" > /home/mailhog/auth
 
 # Make it start on reboot
 tee /etc/init/mailhog.conf <<EOL
