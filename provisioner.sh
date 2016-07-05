@@ -22,7 +22,7 @@ start on runlevel [2345]
 stop on runlevel [!2345]
 respawn
 pre-start script
-    exec su - mailhog -c "/usr/bin/env /usr/local/bin/mailhog -auth-file=/home/mailhog/auth -ui-bind-addr='0.0.0.0:80' -smtp-bind-addr='0.0.0.0:25' > /dev/null 2>&1 &"
+    exec su - mailhog -c "/usr/bin/env /usr/local/bin/mailhog -auth-file=/home/mailhog/auth -api-bind-addr='0.0.0.0:80' -ui-bind-addr='0.0.0.0:80' -smtp-bind-addr='0.0.0.0:25' > /dev/null 2>&1 &"
 end script
 EOL
 
