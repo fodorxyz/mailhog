@@ -16,7 +16,7 @@
     "required": "512mb"
   },
   "distro": "ubuntu-14-04-x64",
-  "description": "MailHog install - easily catch and view test emails",
+  "description": "Installs a password protected MailHog - easily catch and view test emails",
   "keywords": ["fodor", "mailhog", "mailtrap", "mailcatcher", "email", "testing"],
   "homepage": "https://fodor.xyz",
   "inputs": [
