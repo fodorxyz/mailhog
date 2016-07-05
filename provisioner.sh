@@ -1,5 +1,10 @@
 # Create mailhog user so we don't run this as root
-useradd -s /bin/bash mailhog
+useradd -m -s /bin/bash mailhog
+
+# MAILHOG_PASSWORD is a custom input on Fodor
+BCRYPT_PASSWORD=`MailHog bcrypt ${MAILHOG_PASSWORD}`
+
+echo "admin:{$BCRYPT_PASSWORD}" > /home/mailhog/auth
 
 # Download executable from GitHub
 curl -o /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
@@ -14,7 +19,7 @@ start on runlevel [2345]
 stop on runlevel [!2345]
 respawn
 pre-start script
-    exec su - mailhog -c "/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &"
+    exec su - mailhog -c "/usr/bin/env /usr/local/bin/mailhog -auth-file=/home/mailhog/auth -ui-bind-addr="0.0.0.0:80" -smtp-bind-addr="0.0.0.0:25" > /dev/null 2>&1 &"
 end script
 EOL
 
