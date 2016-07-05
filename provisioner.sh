@@ -1,0 +1,22 @@
+# Create mailhog user so we don't run this as root
+useradd -s /bin/bash mailhog
+
+# Download executable from GitHub
+curl -o /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
+
+# Make it executable
+chmod +x /usr/local/bin/mailhog
+
+# Make it start on reboot
+tee /etc/init/mailhog.conf <<EOL
+description "Mailhog"
+start on runlevel [2345]
+stop on runlevel [!2345]
+respawn
+pre-start script
+    exec su - mailhog -c "/usr/bin/env /usr/local/bin/mailhog > /dev/null 2>&1 &"
+end script
+EOL
+
+# Start it now in the background
+service mailhog restart
