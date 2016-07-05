@@ -10,7 +10,7 @@ chmod +x /usr/local/bin/mailhog
 # MAILHOG_PASSWORD is a custom input on Fodor
 BCRYPT_PASSWORD=`/usr/local/bin/mailhog bcrypt ${MAILHOG_PASSWORD}`
 
-echo "admin:${BCRYPT_PASSWORD}" > /home/mailhog/auth
+echo "${MAILHOG_USERNAME}:${BCRYPT_PASSWORD}" > /home/mailhog/auth
 
 # Allow mailhog to listen on privileged ports
 setcap 'cap_net_bind_service=+ep' /usr/local/bin/mailhog
