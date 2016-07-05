@@ -2,7 +2,7 @@
 useradd -m -s /bin/bash mailhog
 
 # Download executable from GitHub
-curl -L -o /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
+curl -sS -L -o /usr/local/bin/mailhog https://github.com/mailhog/MailHog/releases/download/v0.2.0/MailHog_linux_amd64
 
 # Make it executable
 chmod +x /usr/local/bin/mailhog
