@@ -3,7 +3,7 @@
   "installpath": "/tmp/mailhog/",
   "provisioner": "provisioner.sh",
   "text": {
-    "complete": "Username: admin.  Use the provided domain and port 25 for SMTP"
+    "complete": "Use the provided domain and port 25 for SMTP connections"
   },
   "links": [
     {
@@ -20,6 +20,13 @@
   "keywords": ["fodor", "mailhog", "mailtrap", "mailcatcher", "email", "testing"],
   "homepage": "https://fodor.xyz",
   "inputs": [
+    {
+        "title": "MailHog Username",
+        "name": "mailhog_username",
+        "notes": "This will be used to login to MailHog's web interface",
+        "placeholder": "Username...",
+        "type": "string"
+    },
     {
         "title": "MailHog password",
         "name": "mailhog_password",
