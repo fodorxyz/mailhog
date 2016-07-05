@@ -9,6 +9,10 @@
     {
       "title": "Web Interface",
       "url": "http://{{DOMAIN}}/"
+    },
+    {
+      "title": "How to add more users to /home/mailhog/auth",
+      "url": "https://github.com/mailhog/MailHog/blob/master/docs/Auth.md"
     }
   ],
   "size": {
