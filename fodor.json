@@ -23,7 +23,7 @@
     {
         "title": "MailHog password",
         "name": "mailhog_password",
-        "notes": "This will be used to login to MailHog's web interface"
+        "notes": "This will be used to login to MailHog's web interface",
         "placeholder": "F0dor_50_Go0d",
         "type": "string"
     }
