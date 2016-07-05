@@ -1,0 +1,30 @@
+{
+  "name": "fodorxyz/mailhog",
+  "installpath": "/tmp/mailhog/",
+  "provisioner": "provisioner.sh",
+  "text": {
+    "complete": "Username: admin.  Use the provided domain and port 25 for SMTP"
+  },
+  "links": [
+    {
+      "title": "Web Interface",
+      "url": "http://{{DOMAIN}}/"
+    }
+  ],
+  "size": {
+    "suggested": "512mb",
+    "required": "512mb"
+  },
+  "distro": "ubuntu-14-04-x64",
+  "description": "MailHog install - easily catch and view test emails",
+  "keywords": ["fodor", "mailhog", "mailtrap", "mailcatcher", "email", "testing"],
+  "homepage": "https://fodor.xyz",
+  "inputs": [
+    {
+        "title": "MailHog password",
+        "name": "mailhog_password",
+        "placeholder": "xxxx-xxxx-xxxx-xxxx",
+        "type": "string"
+    }
+  ]
+}
